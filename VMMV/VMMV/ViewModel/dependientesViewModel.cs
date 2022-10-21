@@ -12,11 +12,11 @@ namespace VMMV.ViewModel
 {
     class DependientesViewModel
     {
-        private List<Dependiente> UserList;
+        private List<Dependiente> DependientesList;
 
         public DependientesViewModel()
         {
-            UserList = new List<Dependiente>
+            DependientesList = new List<Dependiente>
             {
                 new Dependiente{SegSocial = "1", Nombre = "Pepe", Apellido1 = "Martinez", Apellido2 = "Garcia", Comision = 10},
                 new Dependiente{SegSocial = "2", Nombre = "Juan Miguel", Apellido1 = "Rodriguez", Apellido2 = "Garcia", Comision = 10},
@@ -29,8 +29,8 @@ namespace VMMV.ViewModel
 
         public IList<Dependiente> Dependientes
         {
-            get{return UserList;}
-            set{UserList = value;}
+            get{return DependientesList; }
+            set{DependientesList = value;}
         }
 
         private ICommand mUpdater;
@@ -50,10 +50,16 @@ namespace VMMV.ViewModel
 
         private class Updater : ICommand
         {
+            public event EventHandler CanExecuteChanged;
             #region ICommand Members
             public bool CanExecute(object parameter)
             {
                 return true;
+            }
+
+            public void Execute(object parameter)
+            {
+                throw new NotImplementedException();
             }
         }
 

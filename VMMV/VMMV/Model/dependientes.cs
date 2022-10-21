@@ -22,60 +22,33 @@ namespace VMMV.Model
             {
                 return segSocial;
             }
+
+
             set
             {
                 segSocial = value;
                 OnPropertyChanged("segSocial");
             }
+            
         }
-        public string Nombre
-        {
+        public string Nombre {
             get
             {
-                return nombre;
+               return nombre;
             }
-            set
-            {
-                nombre = value;
-                OnPropertyChanged("nombre");
-            }
+            set => nombre = value; 
         }
-        public string Apellido1
-        {
-            get
-            {
-                return apellido1;
-            }
-            set
-            {
-                apellido1 = value;
-                OnPropertyChanged("apellido1");
-            }
-        }
-        public string Apellido2
-        {
-            get
-            {
-                return apellido2;
-            }
-            set
-            {
-                apellido2 = value;
-                OnPropertyChanged("apellido2");
-            }
-        }
-        public double Comision
-        {
-            get
-            {
-                return comision;
-            }
-            set
-            {
-                comision = value;
-                OnPropertyChanged("comision");
-            }
-        }
+        public string Apellido1 { get => apellido1; set => apellido1 = value; }
+        public string Apellido2 { get => apellido2; set => apellido2 = value; }
+        public double Comision { get => comision; set => comision = value; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

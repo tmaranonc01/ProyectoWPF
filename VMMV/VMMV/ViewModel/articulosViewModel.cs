@@ -20,9 +20,9 @@ namespace VMMV.ViewModel
             ArticulosList = new List<Articulos>
             {
                new Articulos{IdArticulo = 1, Descripcion = "Beniwal", PrecioCoste = 20, IVA = 10},
-               new Articulos{2,"naicobot2",1,21,1.21},
-               new Articulos{3,"naicobot3",1,21,1.21},
-               new Articulos{4,"naicobot4",1,21,1.21},
+               new Articulos{IdArticulo = 2, Descripcion = "Beniwal", PrecioCoste = 22, IVA = 10},
+               new Articulos{IdArticulo = 3, Descripcion = "Beniwal", PrecioCoste = 24, IVA = 10},
+               new Articulos{IdArticulo = 4, Descripcion = "Beniwal", PrecioCoste = 20, IVA = 10},
             };
         }
 
@@ -48,10 +48,16 @@ namespace VMMV.ViewModel
         }
         private class Updater : ICommand
         {
+            public event EventHandler CanExecuteChanged;
             #region ICommand Members
             public bool CanExecute(object parameter)
             {
                 return true;
+            }
+
+            public void Execute(object parameter)
+            {
+                throw new NotImplementedException();
             }
         }
 

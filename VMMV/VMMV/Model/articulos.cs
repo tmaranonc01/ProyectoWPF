@@ -27,6 +27,7 @@ namespace VMMV.Model
             {
                 idArticulo = value;
                 OnPropertyChanged("idArticulo");
+                
             }
         }
         public string Descripcion
@@ -49,8 +50,9 @@ namespace VMMV.Model
             }
             set
             {
-                precioCoste = value;
                 OnPropertyChanged("precioCoste");
+                precioCoste = value;
+              
             }
         }
         public double IVA
@@ -61,8 +63,9 @@ namespace VMMV.Model
             }
             set
             {
-                iva = value;
                 OnPropertyChanged("iva");
+                iva = value;
+               
             }
         }
         public double PVP
@@ -75,6 +78,15 @@ namespace VMMV.Model
             {
                 pvp = value;
                 OnPropertyChanged("pvp");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

@@ -16,56 +16,11 @@ namespace VMMV.Model
         private double importe;
         private string numTarjeta;
 
-        public int IdVenta
-        {
-            get
-            {
-                return idVenta;
-            }
-            set
-            {
-                idVenta = value;
-                OnPropertyChanged("idVenta");
-            }
-        }
+        public int IdVenta { get => idVenta; set => idVenta = value; }
+        public string Fecha { get => fecha; set => fecha = value; }
+        public double Importe { get => importe; set => importe = value; }
+        public string NumTarjeta { get => numTarjeta; set => numTarjeta = value; }
 
-        public String Fecha
-        {
-            get
-            {
-                return fecha;
-            }
-            set
-            {
-                fecha = value;
-                OnPropertyChanged("fecha");
-            }
-        }
-
-        public double Importe
-        {
-            get
-            {
-                return importe;
-            }
-            set
-            {
-                importe = value;
-                OnPropertyChanged("importe");
-            }
-        }
-
-        public string NumTarjeta
-        {
-            get
-            {
-                return numTarjeta;
-            }
-            set
-            {
-                numTarjeta = value;
-                OnPropertyChanged("numTarjeta");
-            }
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
